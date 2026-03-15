@@ -46,4 +46,5 @@ python3 regex_demo.py
 
 ## Next
 
-Next batch will continue with APIs, testing, typing, and packaging.
+[Lesson 21: HTTP & APIs (requests)](21-http-and-apis.md)
+

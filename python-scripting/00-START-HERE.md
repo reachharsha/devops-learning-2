@@ -24,9 +24,9 @@ If you have **zero programming experience**, start here. This course is written 
 
 You’ll see lessons published in batches.
 
-**Batch 1 (published now):** 00–20
+**Batch 1 (published):** 00–20 (foundations + CLI + subprocess + regex)
 
-**Batch 2 (next):** APIs, dates/time, testing, typing, OOP, packaging
+**Batch 2 (published):** 21–35 (HTTP/APIs + config + testing + typing + OOP + packaging)
 
 **Batch 3 (later):** concurrency, performance, security, capstones
 
