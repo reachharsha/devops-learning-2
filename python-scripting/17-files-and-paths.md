@@ -115,4 +115,5 @@ Fix: confirm the file exists, or use the correct path.
 
 ## Next
 
-Next: return to the course list: [Course Index](../index.html)
+Next: [Lesson 18 — JSON & YAML Config](18-json-yaml-config.html)
+
