@@ -1,43 +1,58 @@
 ---
-title: "Python Scripting: 00 - START HERE"
+title: "Python for DevOps Automation: 00 - START HERE"
 render_with_liquid: false
 ---
 
-# Python Scripting (Absolute Beginner → Automation)
+# Python for DevOps Automation (Absolute Zero)
 
-If you have **zero programming experience**, start here. This course is written to be practical and scripting-focused (automation, files, APIs, command line).
+You said: **no programming, no scripting, no coding experience**.
+
+This course assumes that.
+
+Your goal: write production-ready automation scripts for DevOps tasks like:
+
+- log parsing
+- API calls
+- system monitoring checks
+- config management
+- deployment automation glue
 
 ## How to use this course
 
-- Each lesson is a single Markdown page.
-- Read **Concepts**, then do the **Hands-on Lab**.
-- Finish with **Quick Check**.
-- Use the **Next** link to move forward.
+Each lesson contains:
 
-## What you need (minimal)
+- **Real-world analogy** (so the idea clicks)
+- **Hands-on lab** you can run immediately
+- **Expected output**
+- **Common beginner mistakes** + what the error looks like
+- **DevOps use case** (why this matters)
+- **Quick Reference** (mini cheat sheet)
 
-- A laptop
-- A terminal
-- Python 3 installed (Lesson 01 helps you)
+## Ground rules
 
-## Roadmap (we will keep extending)
+- Use **Python 3** only.
+- Focus on practical automation. Skip academic theory.
+- When we introduce a new keyword/symbol, we explain it the first time.
 
-You’ll see lessons published in batches.
+## Course map (high level)
 
-**Batch 1 (published):** 00–20 (foundations + CLI + subprocess + regex)
+### Part 0 — Before Writing Any Code
 
-**Batch 2 (published):** 21–35 (HTTP/APIs + config + testing + typing + OOP + packaging)
+1) What is programming?
+2) How computers run Python (interpreter, bytecode)
+3) Reading tracebacks (your #1 skill)
+4) Install Python on Linux
+5) pip + venv + requirements.txt
+6) REPL + first script + shebang + executable scripts
 
-**Batch 3 (later):** concurrency, performance, security, capstones
+### Part 1 — Programming Fundamentals
 
-## A simple promise
+Variables, types, print/input, operators, strings, exercises.
 
-You will learn:
+### Next parts (published step-by-step)
 
-- How to think like a programmer (step-by-step)
-- How to write scripts that **read files**, **transform data**, and **automate commands**
-- How to build small tools you can reuse
+Control flow, data structures, functions, files (JSON/YAML/CSV), error handling, modules/packages, datetime, regex, and DevOps-focused projects.
 
 ## Next
 
-[Lesson 01: Install Python & Tools](01-install-python-and-tools.md)
+[Lesson 01: What Is Programming?](01-what-is-programming.md)
