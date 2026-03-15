@@ -108,6 +108,18 @@ The exit code should be non-zero because errors=2 > threshold=1.
 - Not using `encoding="utf-8"` (possible decode issues)
 - Not writing a newline at end of JSON (minor, but nice)
 
+## Extension Checklist (make it more “real”)
+
+Try these one-by-one (don’t do all at once):
+
+- Add `--prefix` (default `ERROR`) so you can count `WARN` too
+- Make counting case-insensitive (`error`, `Error`, `ERROR`)
+- Add total line count and include it in the JSON report
+- Add `--fail-code` (default `1`) so CI can distinguish failures
+- Add logging (`logging` module) and a `--debug` flag
+- Handle decode errors explicitly (`errors="replace"`), and include a warning count
+- Write a small unit test for `count_errors()` (use `unittest`)
+
 ## Quick Reference
 
 - Argparse required: `add_argument("--x", required=True)`

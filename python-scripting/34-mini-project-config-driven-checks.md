@@ -87,6 +87,18 @@ wrote checks-report.json
 - Printing secrets from config/env vars
 - Not validating config structure early
 
+## Extension Checklist (make it more “production-like”)
+
+Pick 2–3 items and implement them carefully:
+
+- Add CLI args: `--config services.json` and `--out checks-report.json`
+- Validate config shape early (top-level dict, `services` is a list, each item has `name`)
+- Add exit code rules: exit `1` if any service is unhealthy
+- Add support for YAML config (optional): `services.yaml`
+- Add env var overrides (example: `DEFAULT_TIMEOUT_SECONDS`)
+- Add more report fields: timestamp, number of services, healthy/unhealthy counts
+- Add unit tests for `check_service()` logic and config validation
+
 ## Quick Reference
 
 - Load JSON: `json.loads(Path(...).read_text())`
