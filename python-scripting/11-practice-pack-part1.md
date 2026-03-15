@@ -112,4 +112,5 @@ print(f"{n} bytes = {size:.2f} {units[unit_index]}")
 
 ## Next
 
-Next batch continues Part 2: conditionals and loops with DevOps exercises.
+Next: [Lesson 12 — Conditionals](12-conditionals.html)
+
