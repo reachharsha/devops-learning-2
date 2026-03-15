@@ -24,8 +24,8 @@ Your goal is not “no errors”. Your goal is:
 - Understand exception types (`ValueError`, `KeyError`, `OSError`, etc.)
 - Raise your own errors when something is not acceptable
 - Use `finally` for cleanup
- - Know when to catch vs when to let a crash happen
- - Understand the exception hierarchy (basic)
+- Know when to catch vs when to let a crash happen
+- Understand the exception hierarchy (basic)
 
 ## Mental Model
 
@@ -215,4 +215,4 @@ raise SystemExit(1)
 
 ## Next
 
-Next: return to the course list: [Course Index](../index.html)
+Next: [Lesson 20 — Modules & Imports](20-modules-and-imports.md)
