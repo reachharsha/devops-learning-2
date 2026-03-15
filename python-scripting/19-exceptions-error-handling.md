@@ -24,6 +24,8 @@ Your goal is not “no errors”. Your goal is:
 - Understand exception types (`ValueError`, `KeyError`, `OSError`, etc.)
 - Raise your own errors when something is not acceptable
 - Use `finally` for cleanup
+ - Know when to catch vs when to let a crash happen
+ - Understand the exception hierarchy (basic)
 
 ## Mental Model
 
@@ -76,6 +78,42 @@ raise SystemExit(1)
 ```
 
 Exit code 0 means success. Non-zero means failure.
+
+## Exception hierarchy (simple view)
+
+Many exceptions are subclasses of `Exception`.
+
+```
+BaseException
+  ├─ Exception
+  │    ├─ ValueError
+  │    ├─ TypeError
+  │    ├─ KeyError
+  │    └─ OSError
+  ├─ KeyboardInterrupt
+  └─ SystemExit
+```
+
+Why this matters:
+
+- `except Exception:` catches most “normal” errors
+- it does NOT catch `KeyboardInterrupt` reliably the way you might expect
+- it also does not usually catch `SystemExit` the way you want (exiting is often intentional)
+
+As a beginner rule: catch specific exceptions when you can.
+
+## `else` with try/except
+
+`else` runs only if no exception happened.
+
+```python
+try:
+    n = int("3")
+except ValueError:
+    print("bad")
+else:
+    print("good:", n)
+```
 
 ## Hands-on Lab — Safe config loader
 
@@ -130,6 +168,19 @@ finally:
 
 In modern Python, prefer `with open(...) as f:` (we’ll use that pattern soon).
 
+## When should you catch exceptions?
+
+Catch an exception when you can do something useful:
+
+- print a clear user-friendly message
+- retry an operation
+- exit with a helpful code
+
+Let it crash (for now) when:
+
+- you’re still developing and want the full traceback
+- you can’t recover and hiding the error would make debugging harder
+
 ## Common Mistakes
 
 ### Mistake 1 — Catching everything too early
@@ -160,6 +211,7 @@ raise SystemExit(1)
 - Raise: `raise ValueError("msg")`
 - Script exit: `raise SystemExit(1)`
 - Cleanup: `finally:`
+- Try/except/else: `try ... except ... else ...`
 
 ## Next
 
