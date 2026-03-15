@@ -216,4 +216,4 @@ Convert and validate (e.g., `int(timeout_override)`) and handle `ValueError`.
 
 ## Next
 
-Next: [Lesson 19 — Exceptions & Error Handling](19-exceptions-error-handling.html)
+Next: [Lesson 19 — Exceptions & Error Handling](19-exceptions-error-handling.md)

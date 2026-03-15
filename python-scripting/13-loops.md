@@ -177,4 +177,4 @@ while attempt <= 3:
 
 ## Next
 
-Next: [Lesson 14 — Functions](14-functions.html)
+Next: [Lesson 14 — Functions](14-functions.md)

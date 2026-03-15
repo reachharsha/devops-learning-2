@@ -126,4 +126,4 @@ That might be what you want — just be aware it happens.
 
 ## Next
 
-Next: [Lesson 17 — Files & Paths (pathlib)](17-files-and-paths.html)
+Next: [Lesson 17 — Files & Paths (pathlib)](17-files-and-paths.md)

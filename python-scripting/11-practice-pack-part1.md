@@ -112,5 +112,5 @@ print(f"{n} bytes = {size:.2f} {units[unit_index]}")
 
 ## Next
 
-Next: [Lesson 12 — Conditionals](12-conditionals.html)
+Next: [Lesson 12 — Conditionals](12-conditionals.md)
 

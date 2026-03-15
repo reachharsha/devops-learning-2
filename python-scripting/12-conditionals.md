@@ -206,4 +206,4 @@ Fix: convert using `int(...)` or `float(...)`.
 
 ## Next
 
-Next: [Lesson 13 — Loops](13-loops.html)
+Next: [Lesson 13 — Loops](13-loops.md)

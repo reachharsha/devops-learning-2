@@ -136,5 +136,5 @@ Fix: check length (`len(...)`) or iterate with `for`.
 
 ## Next
 
-Next: [Lesson 16 — Dictionaries (key/value)](16-dictionaries.html)
+Next: [Lesson 16 — Dictionaries (key/value)](16-dictionaries.md)
 

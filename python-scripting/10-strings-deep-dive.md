@@ -7,13 +7,64 @@ render_with_liquid: false
 
 ## Objectives
 
-- Use f-strings
-- Use core string methods
-- Parse simple DevOps text (URL → host)
+By the end, you can:
 
-## Concepts
+- Explain what a string is and why strings are immutable
+- Use f-strings for readable output
+- Use indexing and slicing (`s[0]`, `s[1:4]`)
+- Use core string methods (`strip`, `split`, `join`, `replace`, `startswith`)
+- Parse typical DevOps text (URLs, log lines)
 
-Strings are immutable (you create new strings instead of editing in place).
+## What is a string?
+
+A string (`str`) is text.
+
+In DevOps work, almost everything starts as a string:
+
+- command output
+- logs
+- file contents
+- URLs
+- environment variables
+
+## Strings are immutable
+
+Immutable means: you can’t change the existing string object.
+
+Operations create a new string:
+
+```python
+s = "error"
+t = s.replace("error", "ok")
+print(s)
+print(t)
+```
+
+## Indexing (one character)
+
+```python
+host = "web-01"
+print(host[0])   # 'w'
+print(host[-1])  # '1'
+```
+
+## Slicing (a range)
+
+```python
+host = "web-01"
+print(host[0:3])  # 'web'
+```
+
+Rule: `s[start:end]` includes `start` but excludes `end`.
+
+## Core methods you’ll use constantly
+
+- `strip()` remove surrounding whitespace/newlines
+- `split("/")` split into pieces
+- `"-".join(parts)` join pieces
+- `replace(old, new)`
+- `startswith(prefix)` / `endswith(suffix)`
+- `splitlines()` for multi-line text
 
 ## Hands-on Lab
 
@@ -42,7 +93,29 @@ host=api.example.com
 
 ## Common mistakes
 
-- IndexError from bad splitting
+### Mistake 1 — IndexError from bad splitting
+
+If you access a split part that doesn’t exist, you get `IndexError`.
+
+Fix: check `startswith()` first or handle both cases.
+
+### Mistake 2 — Forgetting that `replace()` returns a new string
+
+Bad:
+
+```python
+s = "error"
+s.replace("error", "ok")
+print(s)
+```
+
+Output is still `error` because you didn’t store the new string.
+
+Fix:
+
+```python
+s = s.replace("error", "ok")
+```
 
 ## DevOps use case
 

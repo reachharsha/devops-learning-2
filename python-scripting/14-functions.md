@@ -143,4 +143,4 @@ Reality: `total` becomes `None`.
 
 ## Next
 
-Next: [Lesson 15 — Lists, Tuples, Sets](15-lists-tuples-sets.html)
+Next: [Lesson 15 — Lists, Tuples, Sets](15-lists-tuples-sets.md)
