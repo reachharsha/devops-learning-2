@@ -19,6 +19,8 @@ DevOps examples:
 - Safely read missing keys with `.get()`
 - Iterate keys/values
 - Build dicts from simple `key=value` text
+- Update dicts and remove keys safely
+- Understand nested dicts (common in JSON)
 
 ## Mental Model (Analogy)
 
@@ -91,6 +93,38 @@ for key, value in metrics.items():
 
 `items()` gives you `(key, value)` pairs.
 
+Other useful views:
+
+```python
+print(metrics.keys())
+print(metrics.values())
+```
+
+## Updating and removing keys
+
+```python
+cfg = {"env": "prod", "retries": 3}
+cfg["retries"] = 5
+
+removed = cfg.pop("retries")
+print("removed:", removed)
+print(cfg)
+```
+
+## Nested dictionaries (common in JSON)
+
+API responses are often nested:
+
+```python
+resp = {
+    "service": {"name": "api", "version": "1.2.3"},
+    "status": {"healthy": True}
+}
+
+print(resp["service"]["name"])
+print(resp.get("status", {}).get("healthy"))
+```
+
 ## Common Mistakes (With Errors)
 
 ### Mistake 1 — KeyError
@@ -116,6 +150,23 @@ If you set `config["ENV"] = "prod"` and later do `config["ENV"] = "dev"`, the ol
 
 That might be what you want — just be aware it happens.
 
+### Mistake 3 — Treating a dict like a list
+
+Bad:
+
+```python
+cfg = {"env": "prod"}
+print(cfg[0])
+```
+
+Typical error:
+
+```text
+KeyError: 0
+```
+
+Because dict access is by key, not position.
+
 ## Quick Reference
 
 - Create: `d = {"k": "v"}`
@@ -123,6 +174,8 @@ That might be what you want — just be aware it happens.
 - Safe read: `d.get("k")` or `d.get("k", default)`
 - Add/update: `d["k"] = value`
 - Iterate pairs: `for k, v in d.items():`
+- Remove: `d.pop("k")`
+- Nested safe get: `d.get("a", {}).get("b")`
 
 ## Next
 

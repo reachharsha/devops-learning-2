@@ -20,6 +20,8 @@ JSON and YAML are the two most common formats you’ll meet.
 - (Optional) Read YAML using `PyYAML`
 - Validate required keys and types (basic “schema” checks)
 - Merge config + environment variables safely
+- Write JSON back to disk (reports)
+- Understand common JSON/YAML gotchas for beginners
 
 ## Mental Model
 
@@ -67,6 +69,30 @@ config = load_json("config.json")
 print("env:", config.get("env"))
 print("retries:", config.get("retries"))
 print("targets:", config.get("targets"))
+```
+
+## Writing JSON (for reports)
+
+Automation often produces machine-readable output.
+
+Create `write_report_json.py`:
+
+```python
+from pathlib import Path
+import json
+
+report = {
+    "service": "api",
+    "healthy": True,
+    "errors": 2,
+}
+
+Path("report.json").write_text(
+    json.dumps(report, indent=2, sort_keys=True) + "\n",
+    encoding="utf-8",
+)
+
+print("wrote report.json")
 ```
 
 ## Basic validation (required keys + types)
@@ -144,6 +170,19 @@ print(cfg)
 
 We use `safe_load` to avoid unsafe YAML features.
 
+### YAML gotcha: types can be implicit
+
+YAML may interpret values as numbers/booleans automatically.
+
+Example:
+
+```yaml
+retries: 3
+healthy: true
+```
+
+In JSON, everything is explicit.
+
 ## Hands-on Lab — Config + env var overrides
 
 Goal: allow config file defaults, but let environment variables override.
@@ -201,7 +240,19 @@ json.decoder.JSONDecodeError: Expecting property name enclosed in double quotes
 
 YAML indentation must use spaces (tabs often break parsing).
 
-### Mistake 3 — Wrong types from env vars
+### Mistake 3 — YAML indentation levels
+
+This is wrong:
+
+```yaml
+targets:
+- web-01
+    - web-02
+```
+
+Indentation must be consistent.
+
+### Mistake 4 — Wrong types from env vars
 
 Environment variables are always strings.
 

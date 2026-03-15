@@ -18,6 +18,8 @@ In DevOps automation, you’ll store things like:
 - Understand when to use a `list`, `tuple`, or `set`
 - Add/remove items from a list
 - Deduplicate values with a set
+- Use indexing and slicing on lists
+- Avoid common mutability surprises
 
 ## Mental Model
 
@@ -42,8 +44,30 @@ Expected output:
 Common operations:
 
 - `append(x)` add to end
+- `extend(list)` add many items
+- `pop()` remove and return last item
+- `remove(x)` remove first matching value
+- `sorted(list)` returns a new sorted list
 - `len(list)` number of items
 - `in` membership test: `"web-01" in servers`
+
+### Indexing and slicing (lists)
+
+Lists are ordered, so you can access items by position.
+
+```python
+servers = ["web-01", "web-02", "api-01"]
+print(servers[0])   # first item
+print(servers[-1])  # last item
+```
+
+Slicing returns a new list:
+
+```python
+print(servers[0:2])  # first two items
+```
+
+Rule: `list[start:end]` includes `start` but excludes `end`.
 
 ## Tuples
 
@@ -55,6 +79,8 @@ name, ip, env = host
 print(name, ip, env)
 ```
 
+Tuples are immutable. You can’t do `host[0] = "x"`.
+
 ## Sets (uniques)
 
 ```python
@@ -64,6 +90,17 @@ print(unique_ips)
 ```
 
 Note: sets are not ordered, so printing may show items in any order.
+
+### Set operations (useful for comparisons)
+
+```python
+a = {"web-01", "web-02"}
+b = {"web-02", "api-01"}
+
+print(a | b)  # union
+print(a & b)  # intersection
+print(a - b)  # difference
+```
 
 ## Hands-on Lab — Dedupe hosts from “inventory” text
 
@@ -102,6 +139,26 @@ unique: ['api-01', 'web-01', 'web-02']
 unique_count: 3
 ```
 
+## Hands-on Lab 2 — Filter only prod servers (list + if)
+
+Create `filter_prod.py`:
+
+```python
+inventory = [
+    "prod-web-01",
+    "prod-web-02",
+    "stage-api-01",
+    "dev-worker-01",
+]
+
+prod = []
+for host in inventory:
+    if host.startswith("prod-"):
+        prod.append(host)
+
+print("prod:", prod)
+```
+
 ## Common Mistakes
 
 ### Mistake 1 — Using a set when order matters
@@ -125,6 +182,25 @@ IndexError: list index out of range
 
 Fix: check length (`len(...)`) or iterate with `for`.
 
+### Mistake 3 — Two variables pointing to the same list
+
+Bad:
+
+```python
+targets = ["web-01"]
+other = targets
+other.append("web-02")
+print(targets)
+```
+
+Both names refer to the same list (mutable object).
+
+Fix: make a copy if you need a separate list:
+
+```python
+other = targets.copy()
+```
+
 ## Quick Reference
 
 - List literal: `[]`
@@ -133,6 +209,8 @@ Fix: check length (`len(...)`) or iterate with `for`.
 - Add to list: `list.append(x)`
 - Count items: `len(x)`
 - Membership: `x in collection`
+- Copy list: `new = old.copy()`
+- Sort (new list): `sorted(list)`
 
 ## Next
 

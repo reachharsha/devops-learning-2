@@ -66,6 +66,66 @@ Rule: `s[start:end]` includes `start` but excludes `end`.
 - `startswith(prefix)` / `endswith(suffix)`
 - `splitlines()` for multi-line text
 
+## Escape sequences (special characters)
+
+Some characters are written with backslashes:
+
+- `\n` newline
+- `\t` tab
+
+Example:
+
+```python
+print("line1\nline2")
+```
+
+## Raw strings (useful for regex and Windows paths)
+
+If you see a lot of backslashes, raw strings reduce escaping:
+
+```python
+pattern = r"\d+"  # \d means digit in regex
+```
+
+## `in` checks (very common in log parsing)
+
+```python
+line = "ERROR timeout"
+if "ERROR" in line:
+    print("found error")
+```
+
+## Hands-on Lab 2 — Parse a key=value log line
+
+DevOps logs often contain fields like `key=value`.
+
+Create `parse_kv_log.py`:
+
+```python
+line = "ts=2026-03-15 level=ERROR service=api msg=timeout"
+
+parts = line.split()
+fields = {}
+
+for part in parts:
+    if "=" not in part:
+        continue
+    key, value = part.split("=", 1)
+    fields[key] = value
+
+print("service:", fields.get("service"))
+print("level:", fields.get("level"))
+print("msg:", fields.get("msg"))
+```
+
+Expected output:
+
+```text
+service: api
+level: ERROR
+msg: timeout
+```
+
 ## Hands-on Lab
 
 Create `parse_url.py`:
@@ -117,6 +177,23 @@ Fix:
 s = s.replace("error", "ok")
 ```
 
+### Mistake 3 — Indexing past the end
+
+Bad:
+
+```python
+s = "web"
+print(s[10])
+```
+
+Typical error:
+
+```text
+IndexError: string index out of range
+```
+
+Fix: check `len(s)` or use safe parsing (split/startswith) instead of fixed indexes.
+
 ## DevOps use case
 
 Logs, command output, URLs, configs all start as strings.
@@ -125,6 +202,9 @@ Logs, command output, URLs, configs all start as strings.
 
 - f-string: `f"{name} {value:.2f}"`
 - Methods: `strip split join replace startswith endswith`
+- Indexing: `s[0]`, last char `s[-1]`
+- Slicing: `s[a:b]` includes a, excludes b
+- Special chars: `\n`, `\t`
 
 ## Next
 
