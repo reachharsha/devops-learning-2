@@ -136,4 +136,5 @@ Fix: check length (`len(...)`) or iterate with `for`.
 
 ## Next
 
-Next: we’ll do dictionaries (key/value) and real config-style parsing.
+Next: [Lesson 16 — Dictionaries (key/value)](16-dictionaries.html)
+
