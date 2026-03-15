@@ -34,6 +34,12 @@ Each lesson contains:
 - Focus on practical automation. Skip academic theory.
 - When we introduce a new keyword/symbol, we explain it the first time.
 
+## Objectives
+
+- Know how to follow the course order (00 → 35)
+- Know what each lesson contains (analogy, lab, expected output, mistakes)
+- Run every lab locally with `python3`
+
 ## Course map (high level)
 
 ### Part 0 — Before Writing Any Code
@@ -52,6 +58,12 @@ Variables, types, print/input, operators, strings, exercises.
 ### Next parts (published step-by-step)
 
 Control flow, data structures, functions, files (JSON/YAML/CSV), error handling, modules/packages, datetime, regex, and DevOps-focused projects.
+
+## Quick Reference
+
+- Run a script: `python3 script.py`
+- If a file isn’t found: check your working directory
+- Read errors carefully: the last lines usually contain the cause
 
 ## Next
 

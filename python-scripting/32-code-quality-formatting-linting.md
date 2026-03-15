@@ -70,4 +70,4 @@ Fix: accept the formatter’s style; it saves time.
 
 ## Next
 
-Next: [Lesson 33 — Mini Project 1 (Log Analyzer CLI)](33-mini-project-log-analyzer-cli.md)
+Next: [Lesson 32B — Practice Pack (Part 2)](32b-practice-pack-part2.md)

@@ -15,9 +15,9 @@ In automation, this is how you avoid copying the same code into 10 scripts.
 - Pass inputs via parameters
 - Return values using `return`
 - Know the difference between “printing” and “returning”
- - Use default parameter values
- - Call functions with keyword arguments
- - Understand basic scope (local vs global)
+- Use default parameter values
+- Call functions with keyword arguments
+- Understand basic scope (local vs global)
 
 ## Mental Model (Analogy)
 

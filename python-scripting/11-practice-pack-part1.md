@@ -7,6 +7,12 @@ render_with_liquid: false
 
 Run these small scripts to build confidence.
 
+## Objectives
+
+- Practice fundamentals with small scripts you can finish quickly
+- Build the habit of: run → read output/error → fix → run again
+- Get comfortable with `input()`, conversions, and basic string parsing
+
 ## Exercise 1 — Variable swap (server roles)
 
 Create `swap_roles.py`:

@@ -13,7 +13,7 @@ Now you’ll combine skills:
 - JSON report output
 - exit codes
 
-## Objective
+## Objectives
 
 Build a CLI tool that:
 

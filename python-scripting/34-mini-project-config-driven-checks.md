@@ -9,7 +9,7 @@ In real automation, you don’t hardcode targets.
 
 You read config (JSON/YAML) and perform checks.
 
-## Objective
+## Objectives
 
 Build a script that:
 

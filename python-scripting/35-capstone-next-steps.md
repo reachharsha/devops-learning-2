@@ -9,6 +9,12 @@ You now have a complete beginner-to-automation toolkit.
 
 This final lesson is a **capstone checklist** you can follow for any script.
 
+## Objectives
+
+- Use a repeatable checklist to design reliable automation scripts
+- Know what “good” looks like: inputs, validation, logging, output, exit codes
+- Have clear next topics to learn after this course
+
 ## Capstone checklist (use this every time)
 
 - Inputs
@@ -66,6 +72,15 @@ if __name__ == "__main__":
 - Learn `boto3` for AWS automation
 - Learn `paramiko` for SSH automation (careful with keys)
 - Learn `asyncio` for high-scale network checks
+
+## Quick Reference
+
+- CLI interface: `argparse` + good `--help`
+- Config: JSON/YAML + validate early
+- Runtime knobs: env vars (strings → convert)
+- External commands: `subprocess.run([...], check=True)`
+- Observability: `logging` levels
+- Output: JSON/CSV reports + non-zero exit codes
 
 ## Next
 
